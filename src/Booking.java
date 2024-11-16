@@ -50,4 +50,4 @@ public class Booking {
     public float getDownPayment(){
         return downPayment;
     }
-}}
+}

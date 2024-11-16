@@ -30,8 +30,10 @@ public class ManageBooking {
             return "Number of participants exceeds room capacity.";
         }
 
+        int bookingID = bookings.size() + 1;
+
         //reserve
-        Booking newBooking = new Booking(customerID, timeSlot, roomID, numParticipants);
+        Booking newBooking = new Booking(bookingID, 0.00f, numParticipants, timeSlot, room, customer);
         bookings.add(newBooking);
 
         //update room status

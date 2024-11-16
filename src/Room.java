@@ -1,7 +1,7 @@
 import java.util.List;
 
 public class Room {
-    private int RoomID;
+    private int roomID;
     private int difficultyLevel;
     private int maxParticipant;
     private String status;
