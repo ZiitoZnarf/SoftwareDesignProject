@@ -6,5 +6,9 @@ public class AccountFunctions {
     private ManageAccount manageAccount;
     private ManageRoom manageRoom;
 
-    
+    public AccountFunctions (ManageAccount manageAccount, ManageRoom manageRoom) {
+        this.manageAccount = manageAccount;
+        this.manageRoom = manageRoom;
+        this.teams = new ArrayList<>();
+    }
 }

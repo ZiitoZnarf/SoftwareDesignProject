@@ -9,10 +9,10 @@ public class Main {
     private static ManageRoom manageRoom;
 
     public static void main(String[] args) {
-        accountFunctions = new AccountFunctions();
+        accountFunctions = new AccountFunctions(manageAccount, manageRoom);
         manageAccount = new ManageAccount();
-        operateRoom = new OperateRoom();
-        manageBooking = new ManageBooking();
+        operateRoom = new OperateRoom(manageRoom, manageBooking);
+        manageBooking = new ManageBooking(manageRoom);
         manageRoom = new ManageRoom();
 
         System.out.println("Look, a println statement!");
