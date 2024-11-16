@@ -4,14 +4,15 @@ import java.util.List;
 public class ManageBooking {
     private List<Booking> bookings;
     private ManageRoom manageRoom;
+    private ManageAccount manageAccount;
 
-    public ManageBooking(ManageRoom manageRoom) {
+    public ManageBooking( ManageAccount manageAccount, ManageRoom manageRoom) {
         this.bookings = new ArrayList<>();
         this.manageRoom = manageRoom;
     }
 
     //reserve room
-    public String reserveRoom(int customerID, String timeSlot, int roomID, int numParticipants, ManageAccount manageAccount){
+    public String reserveRoom(int customerID, String timeSlot, int roomID, int numParticipants){
         //check if cust exist
         Customer customer = manageAccount.getCustomerByID(customerID);
         if (customer == null) {
@@ -31,7 +32,7 @@ public class ManageBooking {
         }
 
         int bookingID = bookings.size() + 1;
-        float downPayment = 0.2f * room.getBasePrice();
+        float downPayment = 0.2f * numParticipants * room.getBasePrice();
 
         //reserve
         Booking newBooking = new Booking(bookingID, downPayment, numParticipants, timeSlot, room, customer);
