@@ -31,9 +31,10 @@ public class ManageBooking {
         }
 
         int bookingID = bookings.size() + 1;
+        float downPayment = 0.2f * room.getBasePrice();
 
         //reserve
-        Booking newBooking = new Booking(bookingID, 0.00f, numParticipants, timeSlot, room, customer);
+        Booking newBooking = new Booking(bookingID, downPayment, numParticipants, timeSlot, room, customer);
         bookings.add(newBooking);
 
         //update room status
