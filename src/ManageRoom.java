@@ -7,4 +7,28 @@ public class ManageRoom {
     public ManageRoom() {
         this.rooms = new ArrayList<>();
     }
+
+    //add room
+    public void addRoom(Room room){
+        rooms.add(room);
+    }
+
+    //get room
+    public Room getRoomByID(int roomID) {
+        for (Room room : rooms) {
+            if (room.getRoomID() == roomID) {
+                return room;
+            }
+        }
+        return null;
+    }
+
+    //room avail
+    public boolean isRoomAvailable(int roomID, String timeSlot) {
+        Room room = getRoomByID(roomID);
+        if (room == null || !room.getStatus().equalsIgnoreCase("available")) {
+            return false;
+        }
+        return true;
+    }
 }
