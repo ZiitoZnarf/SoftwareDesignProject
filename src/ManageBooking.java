@@ -9,6 +9,7 @@ public class ManageBooking {
     public ManageBooking( ManageAccount manageAccount, ManageRoom manageRoom) {
         this.bookings = new ArrayList<>();
         this.manageRoom = manageRoom;
+        this.manageAccount = manageAccount;
     }
 
     //reserve room
