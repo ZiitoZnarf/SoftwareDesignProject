@@ -14,8 +14,8 @@ public class ManageAccount {
     public String registerCustomer(String name, int age, String contactInfo){
         //check if cust exist
         for (Customer customer : customers){
-            if (customer.getName().equalsIgnoreCase(name) && customer.getAge() == age){
-                return "Customer account is already in the system.";
+            if (customer.getContactInfo().equalsIgnoreCase(contactInfo)){
+                return "Customer account (with given contact info) is already in the system.";
             }
         }
 
