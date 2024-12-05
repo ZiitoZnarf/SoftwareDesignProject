@@ -5,11 +5,13 @@ public class ManageBooking {
     private List<Booking> bookings;
     private ManageRoom manageRoom;
     private ManageAccount manageAccount;
+    private BookingBuilder bookingBuilder;
 
     public ManageBooking( ManageAccount manageAccount, ManageRoom manageRoom) {
         this.bookings = new ArrayList<>();
         this.manageRoom = manageRoom;
         this.manageAccount = manageAccount;
+        this.bookingBuilder = new BookingBuilder();
     }
 
     //reserve room
@@ -42,7 +44,9 @@ public class ManageBooking {
         //reserve
         int bookingID = bookings.size() + 1;
         float downPayment = 0.2f * numParticipants * room.getBasePrice();
-        Booking newBooking = new Booking(bookingID, downPayment, numParticipants, timeSlot, room, customer);
+        //Booking newBooking = new Booking(bookingID, downPayment, numParticipants, timeSlot, room, customer);
+        Booking newBooking = this.bookingBuilder.reset().setBookingId(bookingID).setDownPayment(downPayment).
+                setCustomer(customer).setNumberOfParticipants(numParticipants).setTimeSlot(timeSlot).setRoom(room).build();
         bookings.add(newBooking);
 
         //update status

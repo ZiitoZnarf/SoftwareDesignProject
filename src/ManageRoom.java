@@ -24,7 +24,7 @@ public class ManageRoom {
     }
 
     //room avail
-    public boolean isRoomAvailable(int roomID, String timeSlot) {
+    public boolean isRoomAvailable(int roomID, String timeSlot, List<Booking> bookings) {
         Room room = getRoomByID(roomID);
         if (room == null || !room.getStatus().equalsIgnoreCase("available")) {
             return false;

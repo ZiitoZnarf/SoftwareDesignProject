@@ -27,7 +27,7 @@ public class Main {
         manageAccount.registerCustomer("Crouton Smoth", 27, "ShowerCurtain@treeg.com");
         manageAccount.registerCustomer("Kandon Bran", 31, "KurgerBing@nononoyes.com");
         manageAccount.registerCustomer("Eryk Warlock", 24, "Expelliarmus@magic.com");
-
+        manageAccount.getCustomerByID(1).setPaymentInfo("1234123412341234");
 
 
         //registerCustomer Test Cases:
@@ -46,6 +46,10 @@ public class Main {
         System.out.printf("Test reserveRoom where customerID does not exist:\n");
         System.out.printf("manageBooking.reserveRoom(-1, \"4:00\", 101, 3);\n");
         System.out.printf("%s\n\n", manageBooking.reserveRoom(-1, "4:00", 101, 3));
+
+        System.out.printf("Test reserveRoom where Customer has no paymentInfo:\n");
+        System.out.printf("manageBooking.reserveRoom(2, \"4:00\", 99, 3);\n");
+        System.out.printf("%s\n\n", manageBooking.reserveRoom(2, "4:00", 99, 3));
 
         System.out.printf("Test reserveRoom where room does not exist:\n");
         System.out.printf("manageBooking.reserveRoom(1, \"4:00\", 99, 3);\n");
