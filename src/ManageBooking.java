@@ -20,26 +20,32 @@ public class ManageBooking {
             return "Customer not found. Please register first.";
         }
 
+        //payment info check
+        if (customer.getPaymentInfo() == null) {
+            return "Customer payment info is missing. Please update your payment information.";
+        }
+
         //check room avail
+        if (!manageRoom.isRoomAvailable(roomID, timeSlot, bookings)) {
+            return "Room is not available at the specified time slot.";
+        }
+
+        //check room exist / player count
         Room room = manageRoom.getRoomByID(roomID);
         if (room == null) {
             return "Room not found.";
-        }
-        if (!room.getStatus().equalsIgnoreCase("available")) {
-            return "Room is not available.";
         }
         if (numParticipants > room.getMaxParticipant()) {
             return "Number of participants exceeds room capacity.";
         }
 
+        //reserve
         int bookingID = bookings.size() + 1;
         float downPayment = 0.2f * numParticipants * room.getBasePrice();
-
-        //reserve
         Booking newBooking = new Booking(bookingID, downPayment, numParticipants, timeSlot, room, customer);
         bookings.add(newBooking);
 
-        //update room status
+        //update status
         room.setStatus("booked");
         return "Room reserved successfully.";
     }
