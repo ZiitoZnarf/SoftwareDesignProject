@@ -29,6 +29,12 @@ public class ManageRoom {
         if (room == null || !room.getStatus().equalsIgnoreCase("available")) {
             return false;
         }
+
+        for( Booking booking : bookings){
+            if (booking.getRoom().getRoomID() == roomID && booking.getTimeSlot().equalsIgnoreCase(timeSlot)){
+                return false;
+            }
+        }
         return true;
     }
 }
