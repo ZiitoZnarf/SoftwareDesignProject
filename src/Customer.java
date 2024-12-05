@@ -4,6 +4,7 @@ public class Customer {
     private String puzzleCompletionTime;
     private int age;
     private String contactInfo;
+    private String paymentInfo;
     private Team team;
 
     //construct
@@ -12,6 +13,7 @@ public class Customer {
         this.name = name;
         this.age = age;
         this.contactInfo = contactInfo;
+        this.paymentInfo = null;
     }
 
     //getters
@@ -29,5 +31,13 @@ public class Customer {
 
     public String getContactInfo(){
         return contactInfo;
+    }
+
+    public String getPaymentInfo() {
+        return paymentInfo;
+    }
+
+    public void setPaymentInfo(String paymentInfo) {
+        this.paymentInfo = paymentInfo;
     }
 }
